@@ -72,6 +72,13 @@ class AdmissionForm(models.Model):
         ('CERT', 'Certificate'),
     ]
 
+
+       #------------------Gender Choice-----------------
+    gender_choice =[
+        ('MALE','Male'),
+        ('FEMALE','Female'),
+        ('OTHER','Other'),
+    ]
     # ---------- BASIC DETAILS ----------
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -80,7 +87,8 @@ class AdmissionForm(models.Model):
     last_name = models.CharField(max_length=50)
 
     aadhaar_no = models.CharField(max_length=12, unique=True)
-
+     
+    Gender = models.CharField(max_length=6,choices=gender_choice,default='Male')
     date_of_birth = models.DateField()
     email = models.EmailField()
     phone = models.CharField(max_length=10)
