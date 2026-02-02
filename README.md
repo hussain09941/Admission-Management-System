@@ -75,3 +75,11 @@ python manage.py runserver
 
 
 How to Run the Project Locally
+
+
+ ___________________DAY_3______________________________
+ ## Day 3 Progress
+- User registration & login
+- Role-based Profile model
+- Auto profile creation using Django signals
+- Bootstrap integrated for UI

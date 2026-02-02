@@ -85,7 +85,8 @@ class AdmissionForm(models.Model):
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50, blank=True)
     last_name = models.CharField(max_length=50)
-
+    father_name = models.CharField(max_length=50,blank=True,null=True)
+    mother_name = models.CharField(max_length=50,blank =True,null =True)
     aadhaar_no = models.CharField(max_length=12, unique=True)
      
     Gender = models.CharField(max_length=6,choices=gender_choice,default='Male')
