@@ -2,17 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Admission Portal{% endblock %}</title>
-
-    <!-- Bootstrap 5 CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admission Portal | NIT Patna{% endblock %}</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; }
+
+        /* Tier 1: Top Black Bar */
+        .top-bar {
+            background-color: #000;
+            color: white;
+            font-size: 13px;
+            padding: 5px 0;
+        }
+        .top-bar a { color: white; text-decoration: none; margin: 0 10px; }
+        .top-bar a:hover { text-decoration: underline; }
+
+        /* Tier 2: Logo Branding Section */
+        .branding-section {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .inst-name-hi { font-size: 28px; font-weight: bold; color: #000; margin-bottom: 0; }
+        .inst-name-en { font-size: 18px; letter-spacing: 1px; color: #333; }
+        .logo-img { max-height: 100px; }
+        .ministry-text { font-size: 14px; color: #444; text-align: right; }
+
+        /* Tier 3: Maroon Navbar */
+        .main-nav {
+            background-color: #801818; /* NIT Patna Maroon */
+        }
+        .main-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 12px 20px !important;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .main-nav .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div>
+            <span class="border px-2 py-1 me-2">Select Language ▼</span>
+            <strong>THE EDUCTION POINT SITMARHI</strong>
+        </div>
+        <div>
+            <a href="#">Jobs@TEP</a> | <a href="#">Fee Payment</a> | <a href="#"></a> | <a href="#">Academic Portal (New)</a>
+            <span class="ms-3">
+                <i class="fab fa-facebook-f mx-1"></i>
+                <i class="fab fa-twitter mx-1"></i>
+                <i class="fab fa-linkedin-in mx-1"></i>
+                <i class="fas fa-map-marker-alt mx-1"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="branding-section">
     <div class="container">
-        <a class="navbar-brand" href="/">Admission Portal</a>
+        <div class="row align-items-center">
+            <div class="col-md-5 text-start">
+               <p lang="ur" dir="rtl" style="font-family: 'Urdu Typesetting', 'Noto Nastaliq Urdu', serif; font-size: 24px;">
+    دی ایجوکیشن پوائنٹ، سیتامڑھی
+</p>
+                <p class="inst-name-en">THE EDUCATION POINT SITAMARHI</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/52/NIT_Patna_Logo.png" alt="Logo" class="logo-img">
+            </div>
+            <div class="col-md-5 text-end ministry-text">
+                A Premier Institute for Academic Excellence  Empowering Students 
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg main-nav p-0">
+    <div class="container">
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav w-100 justify-content-between text-center">
+                <li class="nav-item"><a class="nav-link" href="{%url 'home'%}"><i class="fas fa-home"></i></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Institute</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Administration</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Academics</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Faculty & Staff</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Students</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Facilities</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 
