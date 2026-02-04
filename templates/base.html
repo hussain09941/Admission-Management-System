@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Admission Portal | NIT Patna{% endblock %}</title>
+    <title>{% block title %}Admission Portal | TEP{% endblock %}</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -34,7 +35,7 @@
 
         /* Tier 3: Maroon Navbar */
         .main-nav {
-            background-color: #801818; /* NIT Patna Maroon */
+            background-color: #187980; /* NIT Patna Maroon */
         }
         .main-nav .nav-link {
             color: white !important;
@@ -55,7 +56,7 @@
     <div class="container d-flex justify-content-between align-items-center">
         <div>
             <span class="border px-2 py-1 me-2">Select Language ▼</span>
-            <strong>THE EDUCTION POINT SITMARHI</strong>
+            <strong>THE EDUCTION POINT SITAMARHI</strong>
         </div>
         <div>
             <a href="#">Jobs@TEP</a> | <a href="#">Fee Payment</a> | <a href="#"></a> | <a href="#">Academic Portal (New)</a>
@@ -79,7 +80,7 @@
                 <p class="inst-name-en">THE EDUCATION POINT SITAMARHI</p>
             </div>
             <div class="col-md-2 text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/en/5/52/NIT_Patna_Logo.png" alt="Logo" class="logo-img">
+                <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="logo-img">
             </div>
             <div class="col-md-5 text-end ministry-text">
                 A Premier Institute for Academic Excellence  Empowering Students 
@@ -100,7 +101,7 @@
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Institute</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Administration</a>
+                    <a class="nav-link dropdown-toggle" href="{%url 'accounts:login'%}" data-bs-toggle="dropdown">Admission</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Academics</a>

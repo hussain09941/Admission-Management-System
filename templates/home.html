@@ -1,17 +1,12 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admission Portal</title>
-</head>
-<body>
+
+{% block content %}
     <h1>Admission Management System</h1>
 
     <p>
-        <a href="/accounts/register/">Register</a>
+        <a href="{% url 'register' %}">Register</a>
     </p>
     <p>
-        <a href="/accounts/login/">Login</a>
+        <a href="{% url 'login' %}">Login</a>
     </p>
-</body>
-</html>
+{% endblock %}
