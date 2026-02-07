@@ -1,3 +1,6 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+# from .models import Slide
 
-# Create your views here.
+# def home(request):
+#     slides = Slide.objects.all()
+#     return render(request, "home.html", {"slides": slides})
