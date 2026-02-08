@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from dashboard.models import Slide
+from dashboard.models import Slide,Course
+
 
 def home(request):
     slides = Slide.objects.all()
-    return render(request, "home.html", {"slides": slides})
+    courses = Course.objects.all()
+    return render(request, "home.html", {
+        "slides": slides,
+        "courses": courses
+    })
+
