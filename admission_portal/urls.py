@@ -8,6 +8,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
+
+    path('student/', include('students.urls')),
+
 ]
 
 # Serve media files only in development

@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-
-from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from .forms import StudentRegistratinForm
+from students.models import StudentProfile
 
+
+# ____________ Register view ____________
 def register(request):
     if request.method == 'POST':
         form = StudentRegistratinForm(request.POST)
@@ -14,6 +15,10 @@ def register(request):
                 email=form.cleaned_data['email'],
                 password=form.cleaned_data['password']
             )
+
+            # create student profile automatically
+            StudentProfile.objects.create(user=user)
+
             login(request, user)
             return redirect('student_dashboard')
     else:
@@ -22,9 +27,7 @@ def register(request):
     return render(request, 'accounts/register.html', {'form': form})
 
 
-#   ________________ user login______________
-from django.contrib.auth import authenticate, login
-
+# ____________ Login view ____________
 def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -33,11 +36,10 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
 
         if user:
-            login(request, user)
+            # create profile if missing
+            StudentProfile.objects.get_or_create(user=user)
 
-            if user.profile.role == "ADMIN":
-                return redirect('admin_dashboard')
-            else:
-                return redirect('student_dashboard')
+            login(request, user)
+            return redirect('student_dashboard')
 
     return render(request, 'accounts/login.html')
