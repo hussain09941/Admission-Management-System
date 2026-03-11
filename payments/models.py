@@ -1,14 +1,16 @@
 
 from django.db import models
-from admission.models import AdmissionForm
+from students.models import StudentProfile
 
 class Payment(models.Model):
-    admission = models.OneToOneField(AdmissionForm, on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=8, decimal_places=2)
-    payment_id = models.CharField(max_length=100)
-    status = models.CharField(max_length=20)
-    paid_at = models.DateTimeField(auto_now_add=True)
+    student = models.ForeignKey(
+        StudentProfile,
+        on_delete=models.CASCADE,
+        null=True,     # 👈 temporary
+        blank=True
+    )
 
-    def __str__(self):
-        return f"{self.payment_id} - {self.status}"
-
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    transaction_id = models.CharField(max_length=100)
+    status = models.CharField(max_length=20, default="SUCCESS")
+    created_at = models.DateTimeField(auto_now_add=True)

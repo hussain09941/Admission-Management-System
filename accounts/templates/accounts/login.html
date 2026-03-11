@@ -8,13 +8,14 @@
 <div class="login-wrapper">
     <form class="login-card" method="post" action="{% url 'accounts:login' %}">
         {% csrf_token %}
-        <h2>Welcome Back</h2>
+        <h2>Welcome to The education point</h2>
 
         <div class="form-group">
             <label>Username</label>
             <input type="text" name="username" required>
         </div>
-
+        <br>
+        
         <div class="form-group">
             <label>Password</label>
             <input type="password" name="password" required>

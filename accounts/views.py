@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate,logout
 from django.contrib.auth.models import User
 from .forms import StudentRegistratinForm
 from students.models import StudentProfile
+from django.contrib.auth.decorators import login_required
+
 
 
 # ____________ Register view ____________
@@ -43,3 +45,13 @@ def user_login(request):
             return redirect('student_dashboard')
 
     return render(request, 'accounts/login.html')
+# logout 
+
+@login_required
+def log_out(request):
+    logout(request)
+    return redirect('accounts:login')
+
+
+
+

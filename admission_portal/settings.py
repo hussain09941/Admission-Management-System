@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'dashboard',
     'payments',
     'students',
+    'courses',
 ]
 
 MIDDLEWARE = [

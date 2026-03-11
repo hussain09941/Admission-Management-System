@@ -10,3 +10,25 @@ class StudentProfile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+#--------------subject models-------------
+class Subject(models.Model):
+    name = models.CharField(max_length=100)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+    
+ #Add rresult model
+
+class Result(models.Model):
+    student = models.ForeignKey(
+        StudentProfile,
+        related_name="results",
+        on_delete=models.CASCADE
+    )
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    marks = models.IntegerField()
+
+    class Meta:
+        unique_together = ('student', 'subject') 
